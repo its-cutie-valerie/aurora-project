@@ -6,10 +6,10 @@ import codedexLogo from "../../assets/valentinesbot.webp";
 export const Footer: React.FC = () => {
     const dataSources = [
         { name: 'SILSO / WDC-SILSO', desc: 'International Sunspot Number', url: 'https://www.sidc.be/SILSO/home' },
-        { name: 'NASA DONKI', desc: 'Space Weather Database', url: 'https://ccmc.gsfc.nasa.gov/donki/' },
+        { name: 'NASA DONKI', desc: 'Space Weather Database', url: 'https://kauai.ccmc.gsfc.nasa.gov/DONKI/' },
         { name: 'GFZ Potsdam', desc: 'Kp Index & Geomagnetic Data', url: 'https://kp.gfz-potsdam.de/en/' },
         { name: 'NOAA SWPC', desc: 'Space Weather Prediction Center', url: 'https://www.swpc.noaa.gov' },
-        { name: 'ESA Space Weather', desc: 'European Space Agency', url: 'https://www.esa-sw.org/' },
+        { name: 'ESA Space Weather', desc: 'European Space Agency', url: 'https://swe.ssa.esa.int/' },
         { name: 'STEREO / SOHO', desc: 'Solar Observatory Missions', url: 'https://soho.nascom.nasa.gov/data/' },
         { name: 'USGS Geomagnetism', desc: 'Geomagnetic Field Models', url: 'https://www.usgs.gov/programs/geomagnetism' },
         { name: 'NAS / Baker et al.', desc: 'Severe Space Weather Reports', url: 'https://www.nap.edu/catalog/12507/severe-space-weather-events-understanding-societal-and-economic-impacts-a' },
