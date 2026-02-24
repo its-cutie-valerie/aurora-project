@@ -1,0 +1,7 @@
+requests
+pandas
+python-dotenv
+urllib3
+sunpy
+numpy
+prophet

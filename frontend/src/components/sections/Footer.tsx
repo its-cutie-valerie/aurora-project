@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
                         <span className="mono">LINKS</span>
                     </div>
                     <div className="footer__link-list">
-                        <a href="#" className="footer__link" aria-label="View on GitHub">
+                        <a href="https://github.com/its-cutie-valerie/aurora-project" className="footer__link" aria-label="View on GitHub">
                             <Github size={16} />
                             <span>Source Code</span>
                             <ExternalLink size={12} />

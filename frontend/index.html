@@ -1,36 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="The Sun's Temper — A visual data science exploration of solar activity and its effects on Earth. Featuring interactive D3 charts, Three.js visualizations, and scroll-driven storytelling." />
-    <meta name="keywords" content="solar activity, data science, sunspots, solar flares, geomagnetic storms, space weather, visualization" />
-    <meta name="author" content="The Sun's Temper Project" />
-    <meta property="og:title" content="The Sun's Temper — When Stars Attack" />
-    <meta property="og:description" content="150 million kilometers away, a star is quietly deciding the fate of your GPS, your power grid, and your satellites." />
-    <meta property="og:type" content="website" />
-    <title>The Sun's Temper — Solar Activity & Its Effects on Earth</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FDB813" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="loading-sun">
-        <circle cx="12" cy="12" r="4"></circle>
-        <path d="M12 2v2"></path>
-        <path d="M12 20v2"></path>
-        <path d="m4.93 4.93 1.41 1.41"></path>
-        <path d="m17.66 17.66 1.41 1.41"></path>
-        <path d="M2 12h2"></path>
-        <path d="M20 12h2"></path>
-        <path d="m6.34 17.66-1.41 1.41"></path>
-        <path d="m19.07 4.93-1.41 1.41"></path>
-      </svg>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="The Sun's Temper — A visual data science exploration of solar activity and its effects on Earth. Featuring interactive D3 charts, Three.js visualizations, and scroll-driven storytelling." />
+  <meta name="keywords"
+    content="solar activity, data science, sunspots, solar flares, geomagnetic storms, space weather, visualization" />
+  <meta name="author" content="The Sun's Temper Project" />
+  <meta property="og:title" content="The Sun's Temper — When Stars Attack" />
+  <meta property="og:description"
+    content="150 million kilometers away, a star is quietly deciding the fate of your GPS, your power grid, and your satellites." />
+  <meta property="og:type" content="website" />
+  <title>The Sun's Temper — Solar Activity & Its Effects on Earth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Premium Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-container">
+      <div class="solar-corona">
+        <div class="corona-inner"></div>
+        <div class="corona-outer"></div>
+        <div class="magnetic-field"></div>
+      </div>
+      <div class="loader-text-wrap">
+        <span class="loader-label">Initializing Aurora Project</span>
+        <div class="loader-progress-track">
+          <div class="loader-progress-bar"></div>
+        </div>
+        <span class="loader-caption">Syncing with Heliographic Coordinates...</span>
+      </div>
     </div>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  </div>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

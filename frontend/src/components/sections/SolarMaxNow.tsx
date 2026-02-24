@@ -1,7 +1,7 @@
 import React, { useRef, useMemo } from 'react';
 import * as d3 from 'd3';
 import { motion, useInView } from 'framer-motion';
-import { Radio as RadioIcon, Navigation, Zap, Satellite, BarChart3, TrendingUp, HelpCircle } from 'lucide-react';
+import { Radio as RadioIcon, Navigation, Zap, Satellite, BarChart3, TrendingUp, HelpCircle, ShieldCheck, Cpu, Globe, Signal } from 'lucide-react';
 import { useD3 } from '../../hooks/useD3';
 import { KeyTakeaway } from '../ui/KeyTakeaway';
 // @ts-expect-error generated JS data
@@ -654,19 +654,53 @@ export const SolarMaxNow: React.FC = () => {
                             <div className="solarmax__reflection-content">
                                 <h3>Our Resilience in the Solar Age</h3>
                                 <p>
-                                    We may live at the mercy of a volatile star, but for the first time in history,
-                                    we are not blind to its moods. Every sunspot we track, every aurora we capture,
-                                    and every satellite we harden is a testament to human ingenuity.
+                                    As our society becomes increasingly reliant on fragile technology, our focus
+                                    must shift from simple observation to proactive protection. While the sun’s temper
+                                    remains beyond our control, our vulnerability is a matter of design.
                                 </p>
                                 <p>
-                                    As our society becomes increasingly reliant on fragile technology, our focus
-                                    must shift from simple observation to proactive protection. Hardening our
-                                    power grids, shielding our communication satellites, and building
-                                    redundancy into our most critical infrastructure is no longer optional—it
-                                    is the price of living in the shadow of a living star.
+                                    Hardening our global systems is not just a technical challenge—it is the
+                                    infrastructure of our survival in the shadow of a living star.
                                 </p>
                             </div>
                         </motion.div>
+
+                        <div className="solarmax__shielding">
+                            <motion.h4 className="solarmax__shielding-title" variants={fadeUp}>
+                                <ShieldCheck size={16} style={{ marginBottom: '-3px', marginRight: '8px', color: 'var(--aurora-cyan)' }} />
+                                Technological Shielding Strategies
+                            </motion.h4>
+                            <div className="solarmax__shielding-grid">
+                                <motion.div className="solarmax__shield-card glass" variants={fadeUp}>
+                                    <h4><Zap size={20} /> Hardened Grids</h4>
+                                    <p>
+                                        Installing high-capacity series capacitors and neutral-to-ground
+                                        resistors to block geomagnetically induced currents (GICs) from entering transformers.
+                                    </p>
+                                </motion.div>
+                                <motion.div className="solarmax__shield-card glass" variants={fadeUp}>
+                                    <h4><Cpu size={20} /> Autonomous Satellites</h4>
+                                    <p>
+                                        Deploying radiation-hardened circuitry and AI-driven "Safe-Stow" protocols that
+                                        automatically orient panels and shut down sensitive sensors during solar flares.
+                                    </p>
+                                </motion.div>
+                                <motion.div className="solarmax__shield-card glass" variants={fadeUp}>
+                                    <h4><Globe size={20} /> Early Warning Buoys</h4>
+                                    <p>
+                                        Establishing a deep-space sensor array at L1, L4, and L5 Lagrange points to
+                                        provide 60-90 minutes of high-fidelity warning before an impact.
+                                    </p>
+                                </motion.div>
+                                <motion.div className="solarmax__shield-card glass" variants={fadeUp}>
+                                    <h4><Signal size={20} /> Redundant Comms</h4>
+                                    <p>
+                                        Moving critical global data to sub-oceanic fiber optic cables, which are
+                                        largely immune to solar interference compared to satellite or HF radio links.
+                                    </p>
+                                </motion.div>
+                            </div>
+                        </div>
 
                         <motion.div
                             className="solarmax__takeaway-wrap"

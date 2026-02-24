@@ -365,6 +365,66 @@
     margin-bottom: 0;
 }
 
+/* ─── Shielding Strategies ──────────────────────────── */
+.solarmax__shielding {
+    margin-top: var(--space-12);
+    width: 100%;
+}
+
+.solarmax__shielding-title {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--aurora-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: var(--space-6);
+    text-align: center;
+}
+
+.solarmax__shielding-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.solarmax__shield-card {
+    padding: var(--space-6);
+    background: rgba(6, 182, 212, 0.03);
+    border: 1px solid rgba(6, 182, 212, 0.1);
+    border-radius: var(--radius-card);
+    transition: all 0.4s var(--ease-out-snappy);
+}
+
+.solarmax__shield-card:hover {
+    background: rgba(6, 182, 212, 0.08);
+    border-color: var(--aurora-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.1);
+}
+
+.solarmax__shield-card h4 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-large);
+    color: var(--aurora-cyan);
+    margin-bottom: var(--space-3);
+}
+
+.solarmax__shield-card p {
+    font-size: var(--text-small);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .solarmax__shielding-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Final Thank You */
 .solarmax__thanks {
     text-align: center;
