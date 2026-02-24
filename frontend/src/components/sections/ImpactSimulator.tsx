@@ -288,8 +288,14 @@ const drawFrame = (
     }
 
     // ── City Lights ──────────────────────────────────────────────────────────
+    const rot = projection.rotate();
+    const center: [number, number] = [-rot[0], -rot[1]];
+
     CITIES.forEach(city => {
-        // Projection acts as a natural visible filter, returning null for the back-half of the globe
+        // Explicitly check if the city is on the visible hemisphere (within 90 degrees of the center)
+        // to prevent "see-through" artifacts where back-side lights are drawn on top.
+        if (d3.geoDistance([city.lon, city.lat], center) > Math.PI / 2) return;
+
         const pt = projection([city.lon, city.lat]);
         if (!pt) return;
         const [px, py] = pt;
@@ -419,7 +425,8 @@ export const ImpactSimulator: React.FC = () => {
                 const radius = Math.min(CW, CH) / 2 * 0.85;
                 const projection = d3.geoOrthographic()
                     .scale(radius)
-                    .translate([CW / 2, CH / 2]);
+                    .translate([CW / 2, CH / 2])
+                    .clipAngle(90);
                 geoRef.current = { land, projection };
             });
     }, [isSimStarted]);
