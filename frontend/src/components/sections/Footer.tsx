@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
                             <span>Blog Post</span>
                             <ExternalLink size={12} />
                         </a> */}
-                        <a href="#" className="footer__link" aria-label="Codédex Submission">
+                        <a href="https://www.codedex.io/community/monthly-challenge/submission/3VFEEVLclsyMoSf92xyL" className="footer__link" aria-label="Codédex Submission">
                             <img src={codedexLogo} alt="Codédex" />
                             <span>Codédex Submission</span>
                             <ExternalLink size={12} />
