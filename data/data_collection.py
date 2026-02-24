@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 magic.py — Space Weather Data Collection Pipeline
 ===================================================

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 data_processing.py — Space Weather Data Cleaning & Aggregation
 ==============================================================
