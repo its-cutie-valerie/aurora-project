@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, ExternalLink, Database, NotepadText, Globe } from 'lucide-react';
+import { Github, ExternalLink, Database, Globe } from 'lucide-react';
 import './Footer.css';
 import codedexLogo from "../../assets/valentinesbot.webp";
 
