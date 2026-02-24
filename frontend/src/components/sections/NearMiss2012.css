@@ -1,0 +1,417 @@
+.nearmiss {
+    position: relative;
+    min-height: 150vh;
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-10);
+}
+
+.nearmiss__bg {
+    position: absolute;
+    inset: 0;
+    /* Subtle orange/alert tint */
+    background: radial-gradient(ellipse at 80% 30%, rgba(249, 115, 22, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+
+    /* Smooth transition */
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+.nearmiss__layout {
+    display: flex;
+    gap: var(--space-8);
+    align-items: flex-start;
+}
+
+.nearmiss__text {
+    flex: 0 0 45%;
+    position: sticky;
+    top: 15vh;
+}
+
+.nearmiss__headline {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+}
+
+.nearmiss__headline-word {
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--text-primary);
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+.nearmiss__sub {
+    font-size: var(--text-large);
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin-bottom: var(--space-3);
+}
+
+.nearmiss__beat {
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(to right, var(--solar-red), transparent);
+    margin: var(--space-8) 0;
+    opacity: 0.3;
+}
+
+.nearmiss__followup {
+    font-size: var(--text-large);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-8);
+}
+
+/* Cost display */
+.nearmiss__cost {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-5);
+    border-radius: var(--radius-card);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--solar-red);
+    box-shadow: var(--glass-shadow);
+    transition: background 0.4s var(--ease-out-snappy), border-color 0.4s var(--ease-out-snappy), box-shadow 0.4s var(--ease-out-snappy);
+}
+
+.nearmiss__cost:hover {
+    background: var(--glass-bg-hover);
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.1);
+}
+
+.nearmiss__cost-label {
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+.nearmiss__cost-value {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--solar-flare);
+    line-height: 1.1;
+    background: linear-gradient(to right, var(--solar-flare), var(--solar-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(239, 68, 68, 0.2);
+}
+
+.nearmiss__cost-range {
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+/* Visual side */
+.nearmiss__visual {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+/* Orbit diagram */
+.nearmiss__orbit-diagram {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.nearmiss__sun-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    border-radius: var(--radius-pill);
+    background: radial-gradient(circle, #FDB813, #F97316);
+    box-shadow: 0 0 30px rgba(253, 184, 19, 0.6),
+        0 0 60px rgba(253, 184, 19, 0.3);
+    animation: sun-pulse 4s ease-in-out infinite;
+}
+
+@keyframes sun-pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.nearmiss__orbit-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    border: 1px dashed var(--glass-border);
+    border-radius: 50%;
+}
+
+.nearmiss__earth-actual {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nearmiss__earth-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: var(--radius-pill);
+    /* Planet layering: Ocean base + Greenery/Land highlights + Cloud reflections */
+    background:
+        radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 40%),
+        /* Glint/Clouds */
+        radial-gradient(circle at 40% 60%, #16a34a 0%, #15803d 30%, transparent 70%),
+        /* "Continent" 1 */
+        radial-gradient(circle at 80% 40%, #16a34a 0%, #15803d 20%, transparent 60%),
+        /* "Continent" 2 */
+        radial-gradient(circle at 30% 30%, #3b82f6 0%, #1d4ed8 70%, #1e3a8a 100%);
+    /* Blue Ocean Base */
+    box-shadow:
+        0 0 15px rgba(37, 99, 235, 0.4),
+        0 0 30px rgba(37, 99, 235, 0.2),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle atmosphere glow */
+.nearmiss__earth-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.4);
+    opacity: 0.6;
+}
+
+.nearmiss__earth-label {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: rgba(6, 182, 212, 0.8);
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+
+.nearmiss__earth-ghost {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nearmiss__ghost-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: var(--radius-pill);
+    background: radial-gradient(circle at 30% 30%,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(96, 165, 250, 0.1) 40%,
+            transparent 80%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.nearmiss__ghost-label {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: rgba(239, 68, 68, 0.7);
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+
+.nearmiss__cme-path {
+    position: absolute;
+    left: 52%;
+    top: 12%;
+    width: 4px;
+    height: 38%;
+    background: linear-gradient(to bottom,
+            #ff7a4d,
+            #ff4d4d 50%,
+            transparent);
+    filter: blur(2px);
+    transform-origin: top center;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+    animation: cme-flicker 2s ease-in-out infinite;
+}
+
+@keyframes cme-flicker {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        height: 38%;
+    }
+
+    50% {
+        opacity: 1;
+        height: 39%;
+    }
+}
+
+/* Chart */
+.nearmiss__chart-wrapper {
+    width: 100%;
+    min-height: 250px;
+    height: 280px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--glass-border);
+    padding: var(--space-2);
+    box-shadow: var(--glass-shadow);
+}
+
+.nearmiss__chart-wrapper svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ─── Why It Matters Panel ──────────────────────────── */
+.nearmiss__matters {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+}
+
+.nearmiss__matters-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-subsection);
+    margin-bottom: var(--space-5);
+}
+
+.nearmiss__matters-heading svg {
+    color: var(--solar-flare);
+}
+
+.nearmiss__matters-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+}
+
+.nearmiss__matters-card {
+    padding: var(--space-5);
+    border-radius: var(--radius-card);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    grid-column: span 2;
+    transition: transform 0.4s var(--ease-out-snappy), background 0.4s var(--ease-out-snappy), border-color 0.4s var(--ease-out-snappy), box-shadow 0.4s var(--ease-out-snappy);
+    position: relative;
+    overflow: hidden;
+}
+
+.nearmiss__matters-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(239, 68, 68, 0.05), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.nearmiss__matters-card:hover::before {
+    opacity: 1;
+}
+
+.nearmiss__matters-card:hover {
+    transform: translateY(-4px);
+    background: var(--glass-bg-hover);
+    border-color: var(--solar-flare);
+}
+
+/* Make Row 2 (the last two items) fill the width */
+.nearmiss__matters-card:nth-child(4),
+.nearmiss__matters-card:nth-child(5) {
+    grid-column: span 3;
+}
+
+.nearmiss__matters-icon {
+    color: var(--solar-flare);
+    margin-bottom: var(--space-1);
+}
+
+.nearmiss__matters-card h4 {
+    font-size: var(--text-large);
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+}
+
+.nearmiss__matters-card p {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ─── Mobile Overrides ──────────────────────────────── */
+@media (max-width: 768px) {
+    .nearmiss {
+        min-height: auto;
+        padding-top: var(--space-8);
+    }
+
+    .nearmiss__layout {
+        flex-direction: column;
+    }
+
+    .nearmiss__text {
+        flex: none;
+        position: relative;
+        top: 0;
+    }
+
+    .nearmiss__orbit-diagram {
+        max-width: 300px;
+    }
+
+    .nearmiss__matters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nearmiss__matters-card,
+    .nearmiss__matters-card:nth-child(4),
+    .nearmiss__matters-card:nth-child(5) {
+        grid-column: span 1 !important;
+    }
+}

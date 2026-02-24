@@ -1,0 +1,86 @@
+/* ═══════════════════════════════════════════════════════════
+   KEY TAKEAWAY — Reusable post-chart insight panel
+   ═══════════════════════════════════════════════════════════ */
+
+.takeaway {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-6);
+    border-radius: var(--radius-card);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    margin-top: var(--space-6);
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.4s var(--ease-out-snappy), border-color 0.4s var(--ease-out-snappy), box-shadow 0.4s var(--ease-out-snappy);
+    width: 100%;
+}
+
+.takeaway:hover {
+    border-color: var(--solar-border);
+    background: var(--glass-bg-hover);
+    transform: translateY(-2px);
+}
+
+.takeaway__icon {
+    flex-shrink: 0;
+    color: var(--solar-gold);
+    margin-top: 2px;
+    filter: drop-shadow(0 0 12px var(--solar-glow));
+}
+
+.takeaway__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.takeaway__label {
+    font-size: var(--text-caption);
+    color: var(--solar-gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: var(--font-mono);
+}
+
+.takeaway__text {
+    font-size: var(--text-body);
+    color: var(--text-primary);
+    line-height: 1.6;
+    max-width: none;
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+/* ─── Variants ────────────────────────────────────────── */
+
+.takeaway--warning .takeaway__icon {
+    color: var(--solar-orange);
+    filter: drop-shadow(0 0 12px rgba(249, 115, 22, 0.4));
+}
+
+.takeaway--warning .takeaway__label {
+    color: var(--solar-orange);
+}
+
+.takeaway--danger .takeaway__icon {
+    color: var(--solar-red);
+    filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.4));
+}
+
+.takeaway--danger .takeaway__label {
+    color: var(--solar-red);
+}
+
+@media (max-width: 480px) {
+    .takeaway {
+        padding: var(--space-4);
+        gap: var(--space-3);
+    }
+}

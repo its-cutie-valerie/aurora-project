@@ -1,0 +1,376 @@
+/* ═══════════════════════════════════════════════════════════
+   INTRODUCTION — "Why This Matters"
+   ═══════════════════════════════════════════════════════════ */
+
+.intro {
+    position: relative;
+    padding: var(--space-16) 0 var(--space-12);
+    overflow: hidden;
+}
+
+.intro__bg {
+    position: absolute;
+    inset: 0;
+    /* Fully transparent to let stars show through */
+    background: transparent;
+    pointer-events: none;
+}
+
+/* Ensure all direct content sections sit above the bg */
+.intro>.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ─── Two-Column Layout ────────────────────────────────── */
+.intro__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
+}
+
+.intro__col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.intro__col p {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: none;
+}
+
+.intro__col-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-subsection);
+    margin-bottom: var(--space-2);
+}
+
+.intro__col-heading svg {
+    color: var(--solar-corona);
+    flex-shrink: 0;
+}
+
+/* ─── Stat Callout ─────────────────────────────────────── */
+.intro__stat-callout {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-card);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    margin-top: var(--space-2);
+    box-shadow: var(--glass-shadow);
+    transition: background-color 0.4s var(--ease-out-snappy), border-color 0.4s var(--ease-out-snappy), transform 0.4s var(--ease-out-snappy), box-shadow 0.4s var(--ease-out-snappy);
+}
+
+.intro__stat-callout:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--solar-border);
+    transform: translateY(-2px);
+}
+
+.intro__stat-callout--danger {
+    background: rgba(239, 68, 68, 0.04);
+    border-color: rgba(239, 68, 68, 0.12);
+}
+
+.intro__stat-callout--danger:hover {
+    border-color: var(--solar-flare);
+}
+
+.intro__stat-number {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--solar-core);
+    text-shadow: 0 0 30px var(--solar-glow);
+}
+
+.intro__stat-callout--danger .intro__stat-number {
+    color: var(--solar-flare);
+    text-shadow: 0 0 30px rgba(239, 68, 68, 0.25);
+}
+
+.intro__stat-label {
+    font-size: var(--text-small);
+    color: var(--text-muted);
+}
+
+/* ─── Solar Cycle Section ──────────────────────────────── */
+.intro__cycle {
+    width: 100%;
+    margin: 0 auto var(--space-16);
+    position: relative;
+    z-index: 1;
+}
+
+.intro__cycle-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-10);
+    align-items: flex-start;
+}
+
+.intro__cycle-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.intro__cycle-info p {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+.intro__cycle-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center badge under graph */
+    gap: var(--space-4);
+}
+
+.intro__cycle-viz {
+    width: 100%;
+    margin: 0;
+    padding: var(--space-5);
+    border-radius: var(--radius-card);
+    background: var(--glass-deep);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+.intro__cycle-svg {
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+}
+
+.intro__svg-label {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    /* Slightly smaller for technical feel */
+    fill: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.intro__svg-label--accent {
+    fill: var(--text-primary);
+    /* Brighter for emphasis */
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 0.05em;
+}
+
+.intro__status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-small);
+    color: var(--solar-corona);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.intro__status-badge svg {
+    flex-shrink: 0;
+}
+
+/* ─── Data Sources Grid ────────────────────────────────── */
+.intro__sources {
+    width: 100%;
+    margin: 0 auto var(--space-16);
+    position: relative;
+    z-index: 1;
+}
+
+.intro__sources-heading {
+    font-size: var(--text-small);
+    color: var(--solar-corona);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: var(--space-4);
+    text-align: center;
+}
+
+.intro__sources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.intro__source-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    border-radius: var(--radius-card);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    transition: background-color 0.4s var(--ease-out-snappy), border-color 0.4s var(--ease-out-snappy), transform 0.4s var(--ease-out-snappy), box-shadow 0.4s var(--ease-out-snappy);
+    box-shadow: var(--glass-shadow);
+}
+
+.intro__source-card:hover {
+    transform: translateY(-4px);
+    background: var(--glass-bg-hover);
+    border-color: var(--solar-border);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+.intro__source-card svg {
+    color: var(--solar-corona);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.intro__source-card>div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.intro__source-name {
+    font-size: var(--text-small);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.intro__source-desc {
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+}
+
+/* ─── Personal Note ────────────────────────────────────── */
+.intro__personal {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    max-width: 1100px;
+    margin: 0 auto var(--space-16);
+    padding: var(--space-6);
+    border-radius: var(--radius-card);
+    background: var(--glass-deep);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    z-index: 1;
+    box-shadow: var(--glass-shadow);
+}
+
+.intro__personal svg {
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.intro__personal p {
+    font-size: var(--text-small);
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: none;
+}
+
+/* ─── Transition ───────────────────────────────────────── */
+.intro__transition {
+    text-align: center;
+    padding-bottom: var(--space-6);
+    position: relative;
+    z-index: 1;
+}
+
+.intro__transition-line {
+    font-size: var(--text-large);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
+    max-width: none;
+}
+
+.intro__transition-line--accent {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.intro__transition-sun {
+    color: var(--solar-core);
+}
+
+.intro__transition-arrow {
+    margin-top: var(--space-4);
+    color: var(--text-muted);
+    animation: scroll-extend 2.5s var(--ease-out-smooth) infinite;
+    display: inline-flex;
+}
+
+/* ─── Mobile ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .intro {
+        padding: var(--space-16) 0 var(--space-8);
+    }
+
+    .intro__columns {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        margin-bottom: var(--space-8);
+    }
+
+    .intro__cycle-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .intro__cycle-info p {
+        max-width: none;
+    }
+
+    .intro__cycle-viz {
+        padding: var(--space-3);
+    }
+
+    .intro__cycle {
+        margin-bottom: var(--space-8);
+    }
+
+    .intro__sources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .intro__sources {
+        margin-bottom: var(--space-8);
+    }
+
+    .intro__personal {
+        margin-bottom: var(--space-8);
+    }
+}
+
+@media (max-width: 480px) {
+    .intro__sources-grid {
+        grid-template-columns: 1fr;
+    }
+}

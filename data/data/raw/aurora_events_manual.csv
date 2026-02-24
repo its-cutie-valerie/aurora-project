@@ -1,0 +1,5 @@
+date,storm_name,min_latitude_visible,kp_max,dst_min_nT,source,notes
+2024-05-10,May 2024 Storm,25,9,-412,SpaceWeatherLive,Visible across continental US and Europe
+2024-05-11,May 2024 Storm,30,8,-350,SpaceWeatherLive,Second night of multi-day storm
+2003-10-29,Halloween Storm,35,9,-383,NOAA,One of the largest storms of Solar Cycle 23
+1989-03-13,Quebec Blackout,40,9,-589,NOAA,Caused Quebec power grid collapse

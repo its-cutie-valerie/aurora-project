@@ -1,0 +1,356 @@
+.erupts {
+    position: relative;
+    /* background lets stars through */
+}
+
+/* Part A: Heatmap */
+.erupts__part-a {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-8);
+}
+
+.erupts__header {
+    max-width: 700px;
+    margin-bottom: var(--space-6);
+}
+
+.erupts__header h2 {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-section);
+}
+
+.erupts__heatmap-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    min-height: 400px;
+}
+
+.erupts__heatmap-container svg {
+    width: 100%;
+    display: block;
+}
+
+/* Premium Tooltip */
+.erupts__tooltip {
+    position: absolute;
+    pointer-events: none;
+    z-index: 100;
+    min-width: 160px;
+    padding: var(--space-4);
+    border-radius: var(--radius-card);
+    background: var(--glass-deep);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    animation: tooltip-pop 0.3s var(--ease-out-snappy);
+    transform-origin: bottom center;
+}
+
+@keyframes tooltip-pop {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -90%) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -100%) scale(1);
+    }
+}
+
+.erupts__tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: var(--glass-deep);
+    border-right: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.erupts__tooltip-header {
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.erupts__tooltip-class {
+    font-family: var(--font-heading);
+    font-size: var(--text-large);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+}
+
+.erupts__tooltip-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--text-secondary);
+}
+
+.erupts__tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.erupts__tooltip-label {
+    color: var(--text-muted);
+}
+
+.erupts__tooltip-value {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Horizontal Scale Grid (Replaces old Legend and Part B) */
+.erupts__scale-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-4);
+    margin: var(--space-8) 0 var(--space-12) 0;
+    padding-left: 70px;
+    padding-right: 30px;
+}
+
+.erupts__scale-card {
+    position: relative;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-card);
+    padding: var(--space-5) var(--space-4);
+    backdrop-filter: var(--glass-blur);
+    transition: transform 0.4s var(--ease-out-snappy), border-color 0.4s var(--ease-out-snappy), background-color 0.4s var(--ease-out-snappy), box-shadow 0.4s var(--ease-out-snappy);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    overflow: hidden;
+    box-shadow: var(--glass-shadow);
+}
+
+/* Glowing top accent */
+.erupts__scale-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--card-accent, var(--text-muted));
+    box-shadow: 0 2px 12px var(--card-accent, transparent);
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
+}
+
+/* Subtle inner glow */
+.erupts__scale-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, var(--card-glow, transparent), transparent 70%);
+    opacity: 0.1;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.erupts__scale-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--solar-border);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 20px var(--card-glow, transparent);
+    background: var(--glass-bg-hover);
+}
+
+.erupts__scale-card:hover::before {
+    opacity: 1;
+}
+
+.erupts__scale-card:hover::after {
+    opacity: 0.25;
+}
+
+.erupts__scale-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.erupts__scale-card-class {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.erupts__scale-card-title {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    font-weight: 700;
+    color: var(--solar-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.8;
+}
+
+.erupts__scale-card-desc {
+    font-size: var(--text-small);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Specific styling for the X10+ Extreme card */
+.erupts__scale-card--extreme {
+    background: rgba(30, 10, 10, 0.4);
+    border-color: var(--solar-red);
+    animation: scale-pulse-soft 4s infinite ease-in-out;
+}
+
+.erupts__scale-card--extreme:hover {
+    border-color: var(--solar-red);
+    animation: scale-pulse-active 2s infinite ease-in-out;
+}
+
+@keyframes scale-pulse-soft {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.05);
+    }
+
+    50% {
+        box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15);
+    }
+}
+
+@keyframes scale-pulse-active {
+
+    0%,
+    100% {
+        box-shadow: 0 8px 24px rgba(239, 68, 68, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 12px 40px rgba(239, 68, 68, 0.4);
+    }
+}
+
+
+
+/* ─── Part C: Impact Cards ─────────────────────────────── */
+.erupts__part-c {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+}
+
+.erupts__impact-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-subsection);
+    margin-bottom: var(--space-5);
+}
+
+.erupts__impact-heading svg {
+    color: var(--solar-corona);
+}
+
+.erupts__impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.erupts__impact-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-card);
+    transition: transform 0.4s var(--ease-out-snappy), border-color 0.4s var(--ease-out-snappy), background-color 0.4s var(--ease-out-snappy), box-shadow 0.4s var(--ease-out-snappy);
+    box-shadow: var(--glass-shadow);
+}
+
+.erupts__impact-card:hover {
+    transform: translateY(-4px);
+    background: var(--glass-bg-hover);
+    border-color: var(--solar-border);
+}
+
+.erupts__impact-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--solar-subtle);
+    color: var(--solar-orange);
+    border: 1px solid var(--solar-border);
+}
+
+.erupts__impact-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.erupts__impact-year {
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.erupts__impact-card h4 {
+    font-size: var(--text-large);
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+}
+
+.erupts__impact-card p {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+    .erupts__scale-grid {
+        grid-template-columns: repeat(3, 1fr);
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .erupts__scale-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .erupts__heatmap-container {
+        overflow-x: auto;
+        padding: 0 var(--space-3);
+    }
+
+    .erupts__impact-grid {
+        grid-template-columns: 1fr;
+    }
+}

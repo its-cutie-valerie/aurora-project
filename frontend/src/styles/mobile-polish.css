@@ -1,0 +1,218 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   PROJECT-WIDE MOBILE POLISH
+   Consolidated overrides for a premium mobile experience.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    :root {
+        /* Refine fluid typography for smaller screens */
+        --text-hero: clamp(2.5rem, 12vw, 4rem);
+        --text-section: clamp(1.75rem, 8vw, 2.5rem);
+        --text-subsection: clamp(1.25rem, 6vw, 1.75rem);
+    }
+
+    .container {
+        padding: 0 var(--space-4);
+        /* Standardizing on space-4 instead of space-3 for better gutter breathing room */
+    }
+
+    /* ─── Hero Polish ─── */
+    .hero {
+        padding: 0 var(--space-4);
+        min-height: 85vh;
+        /* Reduced to avoid large empty gaps on mobile */
+    }
+
+    .hero__title h1 {
+        line-height: 0.95;
+        letter-spacing: -0.01em;
+    }
+
+    .hero__title h1 span {
+        font-size: 0.45em;
+        /* Slightly larger for readability on small screens */
+    }
+
+    .hero__description {
+        font-size: var(--text-body);
+        line-height: 1.6;
+        margin-bottom: var(--space-6);
+    }
+
+    .hero__sun-media {
+        width: 70vw;
+        height: 70vw;
+        margin-bottom: var(--space-4);
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        gap: var(--space-3);
+        width: 100%;
+    }
+
+    .hero__primary-cta {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* ─── Historical Timeline Polish ─── */
+    .historical-timeline::before {
+        left: 20px;
+        /* Shift the central line to the left */
+    }
+
+    .historical-event {
+        width: 100% !important;
+        padding-left: 50px !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+        margin-bottom: var(--space-8);
+    }
+
+    .historical-event--left,
+    .historical-event--right {
+        align-self: flex-start !important;
+    }
+
+    .historical-event__marker {
+        left: 20px !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* ─── Impact Simulator Polish ─── */
+    .simulator__stats {
+        grid-template-columns: 1fr;
+        /* Force stack stats */
+        gap: var(--space-3);
+    }
+
+    .simulator__globe-wrap {
+        height: 300px;
+        /* Explicit height to prevent collapse */
+    }
+
+    /* ─── Solar Max Now Polish ─── */
+    .solarmax__reflection-content {
+        padding: var(--space-4) !important;
+        /* User explicitly requested space-4 */
+    }
+
+    .solarmax__reading-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .solarmax__chart {
+        height: 350px;
+        min-height: 350px;
+    }
+
+    .solarmax__cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* ─── Introduction Polish ─── */
+    .intro__sources-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-3);
+    }
+
+    .intro__personal {
+        padding: var(--space-4) !important;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* ─── Solar Heartbeat Polish ─── */
+    .heartbeat__main-row {
+        flex-direction: column;
+        gap: var(--space-6);
+    }
+
+    .heartbeat__sticky {
+        flex: none !important;
+        max-width: 100% !important;
+    }
+
+    .heartbeat__chart {
+        flex: none !important;
+        width: 100% !important;
+        height: 380px !important;
+        /* Fixed height to prevent ResizeObserver layout loops */
+        min-height: 380px !important;
+        position: relative;
+        top: 0;
+    }
+
+    .heartbeat__facts-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    .heartbeat__fact-card--progress {
+        grid-column: span 2;
+    }
+
+    /* ─── Earth Shield Polish ─── */
+    .shield__magneto-stats {
+        flex-direction: column !important;
+        gap: var(--space-3);
+    }
+
+    .shield__magneto-stat {
+        min-height: auto;
+    }
+
+    /* ─── Near Miss 2012 Polish ─── */
+    .nearmiss__headline {
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: var(--space-4);
+    }
+
+    .nearmiss__headline-word {
+        font-size: clamp(3rem, 15vw, 5rem) !important;
+    }
+
+    .nearmiss__orbit-diagram {
+        width: 100% !important;
+        max-width: 280px !important;
+        margin: var(--space-4) auto !important;
+    }
+
+    /* ─── When It Erupts Polish ─── */
+    .erupts__scale-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-3);
+    }
+
+    .erupts__heatmap-container {
+        padding: 0 !important;
+        margin: 0 -var(--space-4);
+        /* Negative margin to bleed to edges if scrollable */
+        width: calc(100% + (var(--space-4) * 2));
+    }
+
+    /* ─── Navigation Refinement ─── */
+    .nav__links {
+        display: none;
+        /* Usually mobile uses a hamburger, assuming it's handled or we just hide for now to declutter */
+    }
+
+    .nav__container {
+        padding: 0 var(--space-4);
+    }
+}
+
+/* Specific small device polish */
+@media (max-width: 380px) {
+    :root {
+        --text-hero: 2.25rem;
+    }
+
+    .hero__primary-cta {
+        padding: var(--space-3) var(--space-6);
+        font-size: 13px;
+    }
+}

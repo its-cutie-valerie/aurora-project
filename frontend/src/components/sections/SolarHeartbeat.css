@@ -1,0 +1,309 @@
+.heartbeat {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.heartbeat__bg {
+    position: absolute;
+    inset: 0;
+    /* Very subtle deep space glow */
+    background: radial-gradient(ellipse at 50% 50%, rgba(20, 25, 45, 0.6) 0%, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heartbeat__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Stack main row and facts row */
+    gap: var(--space-4);
+    /* Re-introduced gap to prevent overlap */
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+    min-height: 100vh;
+}
+
+.heartbeat__main-row {
+    display: flex;
+    gap: var(--space-8);
+    align-items: flex-start;
+    width: 100%;
+}
+
+.heartbeat__sticky {
+    flex: 0 0 38%;
+    max-width: 38%;
+    position: sticky;
+    top: 15vh;
+}
+
+.heartbeat__sticky-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* Cycle counter card */
+.heartbeat__cycle-counter {
+    margin-top: var(--space-2);
+    padding: var(--space-4);
+    border-radius: var(--radius-card);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-shadow);
+}
+
+.heartbeat__cycle-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: var(--space-1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.heartbeat__progress-bar {
+    width: 100%;
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    margin: var(--space-2) 0;
+}
+
+.heartbeat__progress-fill {
+    height: 100%;
+    border-radius: var(--radius-pill);
+    transition: width 1s var(--ease-out-snappy);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.heartbeat__progress-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+    display: block;
+}
+
+/* Fact Cards Grid */
+.heartbeat__facts-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+    width: 100%;
+}
+
+.heartbeat__fact-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-radius: var(--radius-card);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    transition: background-color 0.4s var(--ease-out-snappy), border-color 0.4s var(--ease-out-snappy), transform 0.4s var(--ease-out-snappy), box-shadow 0.4s var(--ease-out-snappy);
+    box-shadow: var(--glass-shadow);
+}
+
+.heartbeat__fact-card--progress {
+    justify-content: flex-start;
+}
+
+.heartbeat__fact-card--progress .heartbeat__cycle-counter {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.heartbeat__fact-card:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--solar-border);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.heartbeat__fact-card svg {
+    flex-shrink: 0;
+    color: var(--solar-corona);
+}
+
+.heartbeat__fact-card span {
+    font-size: var(--text-small);
+    color: var(--text-secondary);
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+/* Chart */
+.heartbeat__chart {
+    flex: 1;
+    min-height: 500px;
+    height: 60vh;
+    position: sticky;
+    top: 20vh;
+}
+
+.heartbeat__chart svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Annotation labels */
+.annotation-label {
+    transition: opacity 0.3s ease;
+}
+
+.annotation-label:hover text {
+    fill: var(--solar-red) !important;
+    font-weight: 700;
+}
+
+.annotation-label:hover circle {
+    fill: var(--solar-red) !important;
+    r: 4;
+}
+
+/* Today line animation */
+@keyframes mission-pulse {
+    0% {
+        opacity: 0.4;
+        r: 10;
+    }
+
+    50% {
+        opacity: 0;
+        r: 24;
+    }
+
+    100% {
+        opacity: 0.4;
+        r: 10;
+    }
+}
+
+/* Smoothed line glow */
+.heartbeat__chart path[stroke="#F97316"] {
+    filter: drop-shadow(0 0 12px var(--solar-glow));
+    stroke: var(--solar-orange);
+}
+
+/* Monthly raw line subtle depth */
+.heartbeat__chart path[stroke="rgba(249,115,22,0.2)"] {
+    opacity: 0.6;
+    stroke: var(--solar-border);
+}
+
+.heartbeat__explainer {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-12);
+    position: relative;
+    z-index: 1;
+}
+
+.heartbeat__explainer-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-subsection);
+    margin-bottom: var(--space-5);
+}
+
+.heartbeat__explainer-heading svg {
+    color: var(--solar-corona);
+}
+
+.heartbeat__explainer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.heartbeat__explainer-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    border-radius: var(--radius-card);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: transform 0.4s var(--ease-out-snappy),
+        border-color 0.4s var(--ease-out-snappy),
+        background 0.4s var(--ease-out-snappy);
+    box-shadow: var(--glass-shadow);
+}
+
+.heartbeat__explainer-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--solar-border);
+    background: var(--glass-bg-hover);
+}
+
+.heartbeat__explainer-card-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--solar-subtle);
+    color: var(--solar-gold);
+    margin-bottom: var(--space-1);
+    border: 1px solid var(--solar-border);
+}
+
+.heartbeat__explainer-card h4 {
+    font-size: var(--text-large);
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+}
+
+.heartbeat__explainer-card p {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .heartbeat__content {
+        flex-direction: column;
+        gap: var(--space-4);
+        padding-top: var(--space-8);
+    }
+
+    .heartbeat__sticky {
+        flex: none;
+        max-width: 100%;
+        position: relative;
+        top: 0;
+    }
+
+    .heartbeat__chart {
+        width: 100%;
+        min-height: 350px;
+        height: 50vh;
+        position: relative;
+        top: 0;
+    }
+
+    .heartbeat__explainer-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,73 @@
+.data-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 6px 14px;
+    border: 1px solid var(--badge-color);
+    border-radius: var(--radius-pill);
+    background: var(--glass-deep);
+    backdrop-filter: var(--glass-blur);
+    font-family: var(--font-mono);
+    white-space: nowrap;
+    transition: background-color 0.3s var(--ease-out-snappy), border-color 0.3s var(--ease-out-snappy), box-shadow 0.3s var(--ease-out-snappy);
+}
+
+.data-badge__value {
+    font-weight: 700;
+    color: var(--badge-color);
+    font-size: 1.1em;
+}
+
+.data-badge__label {
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Sizes */
+.data-badge--sm {
+    padding: 4px 10px;
+    font-size: var(--text-caption);
+}
+
+.data-badge--md {
+    padding: 6px 14px;
+    font-size: var(--text-small);
+}
+
+.data-badge--lg {
+    padding: 8px 18px;
+    font-size: var(--text-body);
+}
+
+.data-badge--lg .data-badge__value {
+    font-size: 1.4em;
+}
+
+/* Glow */
+.data-badge--glow {
+    box-shadow: 0 0 15px color-mix(in srgb, var(--badge-color) 40%, transparent);
+    animation: badge-pulse 3s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px color-mix(in srgb, var(--badge-color) 40%, transparent);
+        opacity: 0.95;
+    }
+
+    50% {
+        box-shadow: 0 0 30px color-mix(in srgb, var(--badge-color) 60%, transparent);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .data-badge--glow {
+        animation: none;
+    }
+}

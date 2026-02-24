@@ -1,0 +1,226 @@
+.stars-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+}
+
+.stars-modal {
+    width: 100%;
+    max-width: 440px;
+    background: #0a0a0c;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.8),
+        inset 0 0 40px rgba(253, 184, 19, 0.05);
+}
+
+/* Blocky SciFi Corners */
+.stars-modal::before,
+.stars-modal::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--solar-flare);
+    pointer-events: none;
+}
+
+.stars-modal::before {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+}
+
+.stars-modal::after {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+}
+
+.stars-scanlines {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            rgba(255, 255, 255, 0.02) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+    animation: scanline-scroll 20s linear infinite;
+}
+
+@keyframes scanline-scroll {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 100%;
+    }
+}
+
+.stars-header {
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stars-header__main {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.stars-header h3 {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.stars-header__meta {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.stars-separator {
+    margin: 0 var(--space-2);
+    opacity: 0.3;
+}
+
+.stars-content {
+    padding: var(--space-6) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.stars-status-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+}
+
+.stars-warning-text {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.stars-label {
+    color: var(--solar-red);
+    margin-right: var(--space-2);
+}
+
+.stars-body {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.stars-deadpan {
+    font-size: 0.9rem;
+    color: var(--solar-gold);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.stars-specs {
+    margin-top: var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stars-spec-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.stars-active {
+    color: var(--solar-flare);
+}
+
+.stars-actions {
+    padding: var(--space-4) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stars-btn {
+    padding: var(--space-3);
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.stars-btn--primary {
+    background: var(--text-primary);
+    color: #000;
+    border: none;
+}
+
+.stars-btn--primary:hover {
+    background: var(--solar-gold);
+}
+
+.stars-btn--secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stars-btn--secondary:hover {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+}
+
+.stars-footer {
+    padding: var(--space-3) var(--space-5);
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stars-gold {
+    color: var(--solar-gold);
+}
+
+.stars-red {
+    color: var(--solar-red);
+}

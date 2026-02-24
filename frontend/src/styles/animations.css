@@ -1,0 +1,198 @@
+/* ═══════════════════════════════════════════════════════════
+   THE SUN'S TEMPER — Reusable Animation Classes
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Reveal Animations (initial states for GSAP) ─────── */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.reveal-down {
+    opacity: 0;
+    transform: translateY(-40px);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.reveal-fade {
+    opacity: 0;
+}
+
+/* ─── Pulse Animations ──────────────────────────────────── */
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(253, 184, 19, 0.4),
+            0 0 24px rgba(249, 115, 22, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 16px rgba(253, 184, 19, 0.6),
+            0 0 48px rgba(249, 115, 22, 0.3);
+    }
+}
+
+@keyframes pulse-subtle {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.4;
+    }
+}
+
+/* ─── Scroll Indicator ──────────────────────────────────── */
+@keyframes scroll-pulse {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    60% {
+        transform: translateY(16px);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.scroll-indicator {
+    animation: scroll-pulse 2s var(--ease-out-smooth) infinite;
+}
+
+/* ─── Shimmer Effect ────────────────────────────────────── */
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(253, 184, 19, 0.08) 50%,
+            transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s var(--ease-out-smooth) infinite;
+}
+
+/* ─── Float Animation ──────────────────────────────────── */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ─── Border Glow ───────────────────────────────────────── */
+@keyframes border-glow {
+
+    0%,
+    100% {
+        border-color: rgba(249, 115, 22, 0.3);
+    }
+
+    50% {
+        border-color: rgba(249, 115, 22, 0.8);
+    }
+}
+
+/* ─── Text Gradient Animation ───────────────────────────── */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animated-gradient {
+    background-size: 200% auto;
+    animation: gradient-shift 4s ease infinite;
+}
+
+/* ─── Line Draw ─────────────────────────────────────────── */
+.line-draw {
+    stroke-dasharray: var(--path-length, 1000);
+    stroke-dashoffset: var(--path-length, 1000);
+    transition: stroke-dashoffset 2s var(--ease-out-smooth);
+}
+
+.line-draw.drawn {
+    stroke-dashoffset: 0;
+}
+
+/* ─── Reduced Motion Override ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+    .scroll-indicator,
+    .shimmer,
+    .float,
+    .animated-gradient {
+        animation: none;
+    }
+
+    .reveal-up,
+    .reveal-down,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale,
+    .reveal-fade {
+        opacity: 1;
+        transform: none;
+    }
+}

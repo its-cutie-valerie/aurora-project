@@ -1,0 +1,7 @@
+date,satellite,anomaly_type,cause,solar_event,source
+2003-10-28,ADEOS-II (Midori-II),Total loss,Solar panel failure from radiation,Halloween Storm X17.2,ESA/JAXA
+2003-10-29,DRTS (Kodama),Damage,Solar array degradation,Halloween Storm X10,JAXA
+1989-03-13,GOES-7,Sensor anomaly,Sensor saturation,March 1989 X15,NOAA
+2000-07-14,ASCA,Total loss,Attitude control loss from particle storm,Bastille Day X5.7,JAXA/NASA
+2024-05-10,Multiple Starlink,Orbit decay,Atmospheric drag from geomagnetic heating,May 2024 Storm,SpaceX
+2022-02-03,Starlink (40 sats),Re-entry,Atmospheric drag from geomagnetic storm,Geomagnetic storm,SpaceX

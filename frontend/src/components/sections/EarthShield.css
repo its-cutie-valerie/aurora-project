@@ -1,0 +1,268 @@
+.shield {
+    position: relative;
+    min-height: 100vh;
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+}
+
+.shield__aurora-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 30% 0%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 0%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+
+    /* Smooth transition */
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+.shield__header {
+    max-width: 700px;
+    margin: 0 auto var(--space-8);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.shield__header .section-label {
+    justify-content: center;
+}
+
+.shield__header h2 {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-section);
+}
+
+.shield__header p {
+    margin: 0 auto;
+    max-width: 65ch;
+}
+
+.shield__charts {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.shield__chart-combined {
+    min-height: 500px;
+    height: 60vh;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--glass-border);
+    padding: var(--space-2);
+    box-shadow: var(--glass-shadow);
+    /* Allow labels and tooltips to break the borders */
+    overflow: visible;
+}
+
+.shield__chart-combined svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    /* Crucial for labels to bleed out */
+}
+
+/* Tooltip for the Earth Shield interactions */
+.shield__tooltip {
+    position: absolute;
+    pointer-events: none;
+    z-index: 100;
+    min-width: 220px;
+    padding: var(--space-4);
+    border-radius: var(--radius-card);
+    background: var(--glass-deep);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    animation: tooltip-pop 0.3s var(--ease-out-snappy);
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%);
+    /* Force base centering */
+}
+
+@keyframes tooltip-pop {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -95%) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -100%) scale(1);
+    }
+}
+
+.shield__tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: var(--glass-deep);
+    border-right: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.shield__tooltip-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+    background: var(--aurora-cyan);
+}
+
+.shield__tooltip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.shield__tooltip-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-small);
+    color: var(--text-primary);
+}
+
+.shield__tooltip-year {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    font-weight: 700;
+    color: var(--text-primary);
+    background: var(--solar-subtle);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.shield__tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: var(--text-caption);
+    font-family: var(--font-mono);
+}
+
+.shield__tooltip-label {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.shield__tooltip-value {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.shield__tooltip-footer {
+    margin-top: var(--space-2);
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--glass-border);
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* ─── Magnetosphere Explainer ──────────────────────────── */
+.shield__magneto {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-12);
+    position: relative;
+    z-index: 1;
+}
+
+.shield__magneto-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-subsection);
+    margin-bottom: var(--space-5);
+}
+
+.shield__magneto-heading svg {
+    color: var(--aurora-green);
+}
+
+.shield__magneto-text-box {
+    margin-bottom: var(--space-4);
+}
+
+.shield__magneto-text-box p {
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: none;
+}
+
+.shield__magneto-stats {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-4);
+    width: 100%;
+}
+
+.shield__magneto-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    border-radius: var(--radius-card);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    transition: background-color 0.4s var(--ease-out-snappy), border-color 0.4s var(--ease-out-snappy), transform 0.4s var(--ease-out-snappy), box-shadow 0.4s var(--ease-out-snappy);
+    min-height: 120px;
+    box-shadow: var(--glass-shadow);
+}
+
+.shield__magneto-stat:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--aurora-green);
+    transform: translateY(-4px);
+}
+
+.shield__magneto-stat-icon {
+    color: var(--aurora-green);
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.shield__magneto-stat-value {
+    font-size: var(--text-subsection);
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+}
+
+.shield__magneto-stat-label {
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .shield__chart-combined {
+        min-height: 400px;
+        height: 450px;
+    }
+
+    .shield__magneto-content {
+        grid-template-columns: 1fr;
+    }
+}
