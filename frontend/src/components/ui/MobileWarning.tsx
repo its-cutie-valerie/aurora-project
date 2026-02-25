@@ -7,6 +7,22 @@ export const MobileWarning: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
+        // Prevent background scrolling when warning is visible
+        if (isVisible) {
+            document.documentElement.classList.add('body-lock');
+            document.body.classList.add('body-lock');
+        } else {
+            document.documentElement.classList.remove('body-lock');
+            document.body.classList.remove('body-lock');
+        }
+
+        return () => {
+            document.documentElement.classList.remove('body-lock');
+            document.body.classList.remove('body-lock');
+        };
+    }, [isVisible]);
+
+    useEffect(() => {
         // Detect mobile (simplified)
         const isMobile = window.innerWidth < 768;
         const hasBeenDismissed = sessionStorage.getItem('stars_warning_dismissed');
@@ -26,7 +42,10 @@ export const MobileWarning: React.FC = () => {
     return (
         <AnimatePresence>
             {isVisible && (
-                <div className="stars-overlay">
+                <div
+                    className="stars-overlay"
+                    onTouchMove={(e) => e.stopPropagation()}
+                >
                     <motion.div
                         className="stars-modal"
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
