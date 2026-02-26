@@ -1,6 +1,6 @@
 # The Sun's Temper: Aurora Project
 
-A comprehensive data visualization platform for exploring the dynamic behavior of our Sun and its impact on Earth—from historical sunspot cycles to extreme geomagnetic storms.
+A comprehensive data visualization platform for exploring the dynamic behavior of our Sun and its impact on Earth — from historical sunspot cycles to extreme geomagnetic storms.
 
 ## Project Overview
 
