@@ -77,5 +77,5 @@ An immersive, interactive web application built with modern web technologies:
 
 ---
 
-## 📜 Acknowledgments
+## Acknowledgments
 Special thanks to the [SILSO](https://www.sidc.be/silso/), [NASA CCMC](https://kanzelhohe.uni-graz.at/), [NOAA SWPC](https://www.swpc.noaa.gov/), and [GFZ Potsdam](https://www.gfz-potsdam.de/en/) for providing the open-source scientific data that makes this project possible.
