@@ -10,8 +10,7 @@ import {
     Radio,
     BarChart3,
     Globe,
-    User,
-    ChevronDown
+    User
 } from 'lucide-react';
 import { magneticTransition } from '../../styles/animations';
 import './Introduction.css';
