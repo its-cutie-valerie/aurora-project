@@ -303,11 +303,10 @@ export const Introduction: React.FC = () => {
                 </motion.p>
                 <motion.p className="intro__transition-line intro__transition-line--accent" variants={fadeUp}>
                     Let's see what the Sun has been up to.
-                    <Sun size={20} className="intro__transition-sun" />
                 </motion.p>
-                <motion.div className="intro__transition-arrow" variants={fadeUp}>
-                    <ChevronDown size={20} />
-                </motion.div>
+                <motion.p className="intro__transition-line intro__transition-line--small" variants={fadeUp}>
+                    Except for rollin' us right round.
+                </motion.p>
             </motion.div>
         </section>
     );

@@ -320,6 +320,13 @@
     color: var(--solar-core);
 }
 
+.intro__transition-line--small {
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: -8px;
+}
+
 .intro__transition-arrow {
     margin-top: var(--space-4);
     color: var(--text-muted);
