@@ -304,7 +304,7 @@ export const Introduction: React.FC = () => {
                     Let's see what the Sun has been up to.
                 </motion.p>
                 <motion.p className="intro__transition-line intro__transition-line--small" variants={fadeUp}>
-                    Except for rollin' us right round.
+                    Except for spinnin' us right round.
                 </motion.p>
             </motion.div>
         </section>
