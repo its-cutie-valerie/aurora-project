@@ -77,5 +77,14 @@ An immersive, interactive web application built with modern web technologies:
 
 ---
 
+## Future Areas
+I am working on other projects which collect data and it would be very useful for me to have insights and clear outcome from the data.
+- **Weight Scale Resurrection**: My scale is outdated but still working, and I figured out how to read the data from my computer, so I am building an app that will help me track my weight and trends that come from my everyday life.
+- **Voice Practicing Tool**: For singing and articulation, to see how my voice and speaking progress throughout the time.
+- **The Beauty of Planet Earth**: Data and visualizations from various aspects of life on our beautiful planet.
+  
+---
+
 ## Acknowledgments
 Special thanks to the [SILSO](https://www.sidc.be/silso/), [NASA CCMC](https://kanzelhohe.uni-graz.at/), [NOAA SWPC](https://www.swpc.noaa.gov/), and [GFZ Potsdam](https://www.gfz-potsdam.de/en/) for providing the open-source scientific data that makes this project possible.
+
