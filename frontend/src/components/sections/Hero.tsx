@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import { Award } from 'lucide-react';
 import { magneticTransition } from '../../styles/animations';
 import './Hero.css';
 
@@ -22,6 +22,11 @@ export const Hero: React.FC = () => {
                     animate="animate"
                     variants={magneticTransition}
                 >
+
+                    <motion.div className="hero__award-badge" variants={fadeUp}>
+                        <Award size={14} />
+                        <span>Best Storyteller Prize — Codédex 2026</span>
+                    </motion.div>
 
                     <motion.span className="hero__eyebrow" variants={fadeUp}>
                         A MISSION TO THE SOURCE

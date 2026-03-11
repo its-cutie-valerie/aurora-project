@@ -375,6 +375,22 @@ export const NearMiss2012: React.FC = () => {
                         fundamentally changed since then.
                     </KeyTakeaway>
                 </motion.div>
+
+                <motion.div
+                    className="nearmiss__reviewer-note"
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                >
+                    <p className="nearmiss__reviewer-quote">
+                        &quot;This one is paced like a documentary. It starts you off learning about the Sun, builds tension section by section, and by the time you hit the part where Earth dodged a trillion-dollar disaster by 9 days, you&apos;re locked in. One of our reviewers said it got them emotional. If you know Val&eacute;rie, you know she goes all out every time.&quot;
+                    </p>
+                    <div className="nearmiss__reviewer-meta">
+                        <span className="nearmiss__reviewer-team">NOTE FROM THE TEAM</span>
+                        <span className="nearmiss__reviewer-challenge">Cod&eacute;dex &mdash; The Dataset Challenge Winner</span>
+                    </div>
+                </motion.div>
             </div>
         </section >
     );

@@ -415,3 +415,58 @@
         grid-column: span 1 !important;
     }
 }
+/* Reviewer Note Block */
+.nearmiss__reviewer-note {
+    margin-top: var(--space-12);
+    padding: var(--space-10);
+    background: linear-gradient(135deg, rgba(253, 184, 19, 0.08), rgba(249, 115, 22, 0.05));
+    border: 1px solid rgba(253, 184, 19, 0.25);
+    border-radius: var(--radius-card);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.nearmiss__reviewer-note::before {
+    content: '"';
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    font-size: 160px;
+    color: rgba(253, 184, 19, 0.05);
+    font-family: var(--font-serif);
+    font-style: italic;
+    pointer-events: none;
+}
+
+.nearmiss__reviewer-quote {
+    font-family: var(--font-serif);
+    font-size: var(--text-large);
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: var(--space-8);
+    position: relative;
+    z-index: 2;
+}
+
+.nearmiss__reviewer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    font-family: var(--font-mono);
+}
+
+.nearmiss__reviewer-team {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--solar-gold);
+    font-weight: 700;
+}
+
+.nearmiss__reviewer-challenge {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
